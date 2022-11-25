@@ -8,22 +8,41 @@ tf.setBackend('webgl');
 const threshold = 0.75;
 
 async function load_model() {
-    // It's possible to load the model locally or from a repo
-    // You can choose whatever IP and PORT you want in the "http://127.0.0.1:8080/model.json" just set it before in your https server
-    //const model = await loadGraphModel("http://127.0.0.1:8080/model.json");
-    const model = await loadGraphModel("https://raw.githubusercontent.com/hugozanini/TFJS-object-detection/master/models/kangaroo-detector/model.json");
-    return model;
-  }
+  // It's possible to load the model locally or from a repo
+  // You can choose whatever IP and PORT you want in the "http://127.0.0.1:8080/model.json" just set it before in your https server
+  const model = await loadGraphModel("http://127.0.0.1:8080/model.json");
+  return model;
+}
 
 let classesDir = {
-    1: {
-        name: 'Kangaroo',
-        id: 1,
-    },
-    2: {
-        name: 'Other',
-        id: 2,
-    }
+  1: {
+      name: 'background',
+      id: 1,
+  },
+  2: {
+    name: 'gcc_id',
+    id: 2,
+  },
+  3: {
+    name: 'other_id',
+    id: 3,
+  },
+  4: {
+    name: 'eid_front',
+    id: 4,
+  },
+  5: {
+    name: 'passport',
+    id: 5,
+  },
+  6: {
+    name: 'eid_back',
+    id: 6,
+  },
+  7:{
+    name: 'visa',
+    id: 7,
+  }
 }
 
 class App extends React.Component {
